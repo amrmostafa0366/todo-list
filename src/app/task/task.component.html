@@ -1,0 +1,27 @@
+<select (change)="changeFilter($event) ">
+    <option value="All">All</option>
+    <option value="Done">Done</option>
+    <option value="Not yet">Not yet</option>
+</select>
+<br>
+
+<div>
+    <input [(ngModel)]="title" (keyup.enter)="addTask()" />
+    <button class="btn btn-primary " id="add" (click)="addTask()">Add</button>
+</div>
+
+<h5>All Tasks</h5>
+
+<ul>
+    <li *ngFor="let task of tasks | filter:filterBy ">
+        <div id="chtxt">
+            <input id="checkbox" type="checkbox" [checked]="task.isDone" (click)="task.clickcCheck()">
+            <label [style]="task.isDone? 'text-decoration:line-through' : '' "> {{task.title}}</label>
+            <label id="date">({{task.creationDate | date:'medium'}})</label>
+        </div>
+        <div id="deltedit">
+            <button class="btn btn-primary" id="delete" (click)="removeTask(tasks.indexOf(task))">Delete</button>
+            <button class="btn btn-primary" id="edit" (click)="updateTask(tasks.indexOf(task))">Edit</button>
+        </div>
+    </li>
+</ul>
