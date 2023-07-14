@@ -22,7 +22,7 @@ export class TaskComponent {
   }
 
   updateTask(index: number) {
-    if (this.isEmpty(this.title)) {
+    if (!this.isEmpty(this.title)) {
       let task = this.tasks.at(index);
       if (task?.title) {
         task.title = this.title;

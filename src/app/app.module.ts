@@ -15,7 +15,6 @@ import { FilterPipe } from './filter.pipe';
   imports: [
     BrowserModule,
     FormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

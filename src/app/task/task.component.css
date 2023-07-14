@@ -7,10 +7,6 @@ ul {
 #checkbox {
     margin-right: 10px;
 }
-#date{
-    font-size: x-small;
-    margin-left: 3px;
-}
 
 input{
     font-size: medium;
@@ -30,6 +26,12 @@ button {
     float: left;
     width: 500px;
 }
+#date{
+    font-size: x-small;
+    margin-left: 3px;
+    clear: both;
+}
+
 
 #deltedit {
     padding: 5px;
