@@ -7,8 +7,10 @@ import { Todo } from 'src/classes/Todo';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   todos: Todo[] = [];
-  filterBy: string = 'All'
+  filterBy: string = 'All';
+  searchBy: string = '';
   changeFilter(event: any) {
     this.filterBy = event.target.value;
   }

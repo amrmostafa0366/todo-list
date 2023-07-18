@@ -1,7 +1,18 @@
-<form #form="ngForm">
+<form [formGroup]="form">
     <div>
-        <input required name="todoFC"  type="text" #todo [(ngModel)]="inputValue">
-        <button (click)="addEmit(todo.value)" [disabled]="form.invalid" id="add" class="btn vtn-primary">Add</button>
+        {{todos}}
     </div>
-    <!-- {{form.value|json}} -->
+    <div>
+        <input formControlName="todo" type="text">
+        <button (click)="addEmit(todo.value)" [disabled]="form.invalid || todo.pending || !todo.value " id="add"
+            class="btn vtn-primary">Add</button>
+        <div id="checking" *ngIf="todo.pending">checking validity...</div>
+        <div *ngIf="  todo?.invalid  " class="alert alert-danger">
+            <!-- <div *ngIf="todo.errors?.['required']">required</div> -->
+            <!-- <div *ngIf="todo?.errors?.['shouldBeUnique']">task should be unique</div> -->
+            <div *ngIf="todo.errors?.['shouldBeUniqueInList']"> task should be unique</div>
+        </div>
+    </div>
+    <!-- {{form.value|json}}
+    <pre>{{ todos | json }}</pre> -->
 </form>

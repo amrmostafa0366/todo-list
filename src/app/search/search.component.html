@@ -1,0 +1,12 @@
+<div>
+    search
+    <div>
+        <input type="text" change [(ngModel)]="searchBy">
+        <!-- <button (click)="searchFn(search.value)" class="btn vtn-primary">Search</button> -->
+        <ul *ngIf="searchBy !==''">
+            <li *ngFor="let todo of searchFn()">
+                {{todo.title}}
+            </li>
+        </ul>
+    </div>
+</div>

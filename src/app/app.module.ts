@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { TodoComponent } from './todo/todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
     FilterPipe,
     TodoComponent,
     AddTodoComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

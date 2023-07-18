@@ -7,8 +7,9 @@
     </select>
 </div>
 <br>
-
-<add-todo (todo)="addTodo($event)"></add-todo>
+<search [list]="todos"></search>
+<br>
+<add-todo [todos]="todos" (todo)="addTodo($event)"></add-todo>
 <br>
 <h5>All Tasks</h5>
 <todo [todo]="todos" [filterBy]="filterBy"></todo>
