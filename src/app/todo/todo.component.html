@@ -1,0 +1,19 @@
+<div>
+    <ul>
+        <li *ngFor="let todo of todos | filter:filterBy">
+            <div id="chtxt">
+                <input (click)="clickCheck(todo)" [checked]="todo.isDone" type="checkbox" id="checkbox">
+                <label *ngIf="!todo.editable"
+                    [style]="todo.isDone? 'text-decoration:line-through' : '' ">{{todo.title}}</label>
+                <input [hidden]="!todo.editable" [value]="todo.title" (keyup.enter)="save(todo,newTitle.value)"
+                    #newTitle type="text">
+                <label id="date">({{todo.creationDate | date:'medium'}})</label>
+            </div>
+            <div id="deltedit">
+                <button (click)="delete(todo)" id="delete">Delete</button>
+                <button *ngIf="!todo.editable" (click)="edit(todo)" id="edit">Edit</button>
+                <button *ngIf="todo.editable" (click)="save(todo,newTitle.value)" id="save">Save</button>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,2 +1,14 @@
 <h1>TODO Items</h1>
-<app-task></app-task>
+<div>
+    <select (change)="changeFilter($event)">
+        <option value="All">All</option>
+        <option value="Done">Done</option>
+        <option value="Not yet">Not yet</option>
+    </select>
+</div>
+<br>
+
+<add-todo (todo)="addTodo($event)"></add-todo>
+<br>
+<h5>All Tasks</h5>
+<todo [todo]="todos" [filterBy]="filterBy"></todo>

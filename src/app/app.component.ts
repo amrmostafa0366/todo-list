@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Todo } from 'src/classes/Todo';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo-list';
+  todos: Todo[] = [];
+  filterBy: string = 'All'
+  changeFilter(event: any) {
+    this.filterBy = event.target.value;
+  }
+  addTodo(todo: string) {
+    this.todos.push(new Todo(todo));
+  }
 }

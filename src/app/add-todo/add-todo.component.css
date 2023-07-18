@@ -1,0 +1,19 @@
+
+input{
+    font-size: medium;
+}
+label{
+    font-size: larger;
+}
+
+button {
+    color: white;
+    margin-left: 5px;
+    font-weight: 700;
+
+}
+#add {
+    background-color: cornflowerblue;
+    border-color: cornflowerblue;
+
+}

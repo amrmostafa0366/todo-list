@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -9,6 +9,16 @@ export class TaskComponent {
   title = '';
   tasks: Task[] = [];
   filterBy = '';
+
+  @Input('title') titl!: string;
+  @Input('isDone') isDone!:boolean;
+  @Input('date') creationDate!:Date;
+  @Input('editable') editable!:boolean;
+  
+  
+  checkInput(){
+    console.log(this.titl,this.isDone,this.creationDate,this.editable);
+  }
 
   addTask() {
     if (!this.title.match(/^ *$/)) {
@@ -21,15 +31,7 @@ export class TaskComponent {
     this.tasks.splice(index, 1);
   }
 
-  updateTask(index: number) {
-    if (!this.isEmpty(this.title)) {
-      let task = this.tasks.at(index);
-      if (task?.title) {
-        task.title = this.title;
-      }
-    }
-    this.title = '';
-  }
+
   changeFilter(event: any) {
     this.filterBy = event.target.value;
   }
@@ -45,12 +47,17 @@ export class TaskComponent {
 export class Task {
   title: string = '';
   isDone: boolean = false;
+  editable: boolean = false;
   creationDate: Date;
   constructor(title?: string) {
     title ? this.title = title : '';
     this.creationDate = new Date();
+
   }
   clickcCheck() {
     this.isDone = !this.isDone;
+  }
+  edit() {
+    this.editable = !this.editable;
   }
 }
