@@ -1,4 +1,6 @@
-<div>
-    <input (keyup.enter)="addEmit(todo.value)" type="text" #todo [(ngModel)]="inputValue">
-    <button (click)="addEmit(todo.value)" id="add">Add</button>
-</div>
+<form #f="ngForm">
+    <div>
+        <input required ngModel name="todoFC" (keyup.enter)="addEmit(todo.value)" type="text" #todo [(ngModel)]="inputValue">
+        <button (click)="addEmit(todo.value)" [disabled]="f.invalid" id="add">Add</button>
+    </div>
+</form>

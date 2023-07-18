@@ -11,9 +11,9 @@ export class TodoComponent {
   @Input('todo') todos!: Todo[];
   @Input('filterBy') filterBy!: string;
 
-    clickCheck(todo: Todo) {
-      todo.isDone = !todo.isDone;
-    }
+  clickCheck(todo: Todo) {
+    todo.isDone = !todo.isDone;
+  }
   delete(todo: Todo) {
     let index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
@@ -38,3 +38,6 @@ export class TodoComponent {
   }
 
 }
+/* amr's note
+inputfield ,, -> output -> taken by parent component,, then parent component use it with another child component , anf this child comp will recieve it as an inpnut
+*/
