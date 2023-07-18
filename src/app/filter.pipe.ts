@@ -7,17 +7,17 @@ import { Todo } from 'src/classes/Todo';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(tasks: Todo[], filterBy: string) {
-    if (!tasks)
+  transform(todos: Todo[], filterBy: string) {
+    if (!todos)
       return null;
 
     if (filterBy === 'Done') {
-      return tasks.filter(t => t.isDone)
+      return todos.filter(t => t.isDone)
     }
     else if (filterBy === 'Not yet') {
-      return tasks.filter(t => !t.isDone)
+      return todos.filter(t => !t.isDone)
     } else {
-      return tasks;
+      return todos;
     }
   }
 

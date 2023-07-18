@@ -9,17 +9,7 @@ export class TaskComponent {
   title = '';
   tasks: Task[] = [];
   filterBy = '';
-
-  @Input('title') titl!: string;
-  @Input('isDone') isDone!:boolean;
-  @Input('date') creationDate!:Date;
-  @Input('editable') editable!:boolean;
   
-  
-  checkInput(){
-    console.log(this.titl,this.isDone,this.creationDate,this.editable);
-  }
-
   addTask() {
     if (!this.title.match(/^ *$/)) {
       this.tasks.push(new Task(this.title));

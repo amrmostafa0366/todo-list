@@ -10,9 +10,9 @@
                 <label id="date">({{todo.creationDate | date:'medium'}})</label>
             </div>
             <div id="deltedit">
-                <button (click)="delete(todo)" id="delete">Delete</button>
-                <button *ngIf="!todo.editable" (click)="edit(todo)" id="edit">Edit</button>
-                <button *ngIf="todo.editable" (click)="save(todo,newTitle.value)" id="save">Save</button>
+                <button (click)="delete(todo)" id="delete" class="btn vtn-primary">Delete</button>
+                <button *ngIf="!todo.editable" (click)="edit(todo)" id="edit" class="btn vtn-primary">Edit</button>
+                <button *ngIf="todo.editable" (click)="save(todo,newTitle.value)" id="save" class="btn vtn-primary">Save</button>
             </div>
         </li>
     </ul>
