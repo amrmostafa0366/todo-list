@@ -1,0 +1,25 @@
+#delete {
+    background-color: crimson;
+    border-color: crimson;
+}
+
+#cancel {
+    background-color: darkcyan;
+    border-color: darkcyan;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+
+button{
+    width: 100px;
+}
+label{
+    font-size: larger;
+
+}

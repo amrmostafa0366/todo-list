@@ -11,6 +11,7 @@ export class AppComponent {
   todos: Todo[] = [];
   filterBy: string = 'All';
   searchBy: string = '';
+
   changeFilter(event: any) {
     this.filterBy = event.target.value;
   }

@@ -1,7 +1,8 @@
 <div>
     <ul>
-        <li *ngFor="let todo of todos | filter:filterBy">
-            <div id="chtxt">
+        <!-- <li *ngFor="let todo of todos | filter:filterBy"> -->
+            <li *ngFor="let todo of todos.slice(paginator.pageIndex * paginator.pageSize, (paginator.pageIndex + 1) * paginator.pageSize) | filter:filterBy">
+                <div id="chtxt">
                 <input (click)="clickCheck(todo)" [checked]="todo.isDone" type="checkbox" id="checkbox">
                 <label *ngIf="!todo.editable"
                     [style]="todo.isDone? 'text-decoration:line-through' : '' ">{{todo.title}}</label>
@@ -10,10 +11,21 @@
                 <label id="date">({{todo.creationDate | date:'medium'}})</label>
             </div>
             <div id="deltedit">
-                <button (click)="delete(todo)" id="delete" class="btn vtn-primary">Delete</button>
+                <!-- <button (click)="openDialog(todos,todo)"></button> -->
+                <button (click)="openDialog(todos,todo)" id="delete" class="btn vtn-primary">Delete</button>
                 <button *ngIf="!todo.editable" (click)="edit(todo)" id="edit" class="btn vtn-primary">Edit</button>
                 <button *ngIf="todo.editable" (click)="save(todo,newTitle.value)" id="save" class="btn vtn-primary">Save</button>
             </div>
         </li>
     </ul>
+</div>
+<div>
+    <mat-paginator [length]="todos.length"
+                    [pageSize]="5"
+                     aria-label="Select page"
+                      [hidePageSize]="true"
+                      #paginator
+                      >
+    </mat-paginator>
+
 </div>
